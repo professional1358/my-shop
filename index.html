@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6c4cf1">
+  <title>رنگین‌مارکت | فروشگاه آنلاین</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+    :root{--ink:#202039;--muted:#77778d;--purple:#6c4cf1;--pink:#ff6b9d;--yellow:#ffd166;--mint:#b9f3df;--paper:#fbfaff;--line:#eeebf6}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif}
+    button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}
+    .top{background:#292344;color:#fff;text-align:center;padding:9px 12px;font-size:13px}
+    header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+    .nav{height:76px;display:flex;align-items:center;gap:24px}.brand{font-weight:900;font-size:24px;color:var(--purple);white-space:nowrap}.brand span{color:var(--pink)}
+    .search{flex:1;position:relative}.search input{width:100%;border:1px solid var(--line);background:#f8f7fc;border-radius:14px;padding:13px 44px 13px 16px;outline:none}.search:before{content:"⌕";position:absolute;right:16px;top:3px;font-size:27px;color:var(--muted)}
+    .cart{border:0;background:#292344;color:#fff;border-radius:13px;padding:12px 16px;font-weight:700}.cart b{background:var(--yellow);color:#292344;border-radius:20px;padding:1px 7px;margin-right:5px}
+    .hero{margin:28px auto 36px;border-radius:28px;overflow:hidden;background:linear-gradient(115deg,#6c4cf1,#a477ff 58%,#ff8ab2);color:#fff;min-height:300px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;padding:38px 6%;position:relative}
+    .hero:after{content:"";position:absolute;width:260px;height:260px;border:35px solid #ffffff20;border-radius:50%;left:8%;top:-90px}
+    .hero h1{font-size:clamp(28px,4vw,46px);line-height:1.45;margin:0 0 12px;font-weight:900}.hero p{font-size:16px;line-height:2;margin:0 0 22px;color:#f5efff}
+    .hero a{display:inline-block;text-decoration:none;background:var(--yellow);color:#34274f;padding:12px 22px;border-radius:13px;font-weight:800}
+    .hero-art{font-size:130px;text-align:center;filter:drop-shadow(0 18px 15px #39207a40);z-index:1}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin:0 0 18px}.section-head h2{margin:0;font-size:23px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}
+    .chips{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}.chip{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:30px;padding:8px 15px}.chip.active{background:#292344;color:#fff;border-color:#292344}
+    .products{display:grid;grid-template-columns:repeat(4,1fr);gap:17px;margin-bottom:56px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;transition:.2s}.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #30205c12}
+    .photo{height:175px;border-radius:15px;display:grid;place-items:center;font-size:76px;position:relative}.tag{position:absolute;right:10px;top:10px;background:#fff;border-radius:20px;padding:4px 9px;font-size:11px;color:#6c4cf1;font-weight:800}
+    .card h3{font-size:15px;margin:13px 2px 5px}.desc{font-size:12px;color:var(--muted);margin:0 2px 13px}.price-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:900}.add{border:0;background:#eee9ff;color:#5c3be0;border-radius:11px;padding:9px 12px;font-weight:800}.add:hover{background:var(--purple);color:#fff}
+    footer{background:#292344;color:#fff;padding:30px 0;text-align:center}footer p{color:#c7c1da;font-size:13px;margin:8px 0}
+    .overlay{position:fixed;inset:0;background:#17132980;z-index:10;display:none}.overlay.show{display:block}.drawer{position:absolute;left:0;top:0;height:100%;width:min(420px,92vw);background:#fff;padding:22px;overflow:auto}.drawer-head{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#f1eff8;border-radius:10px;padding:8px 12px}.cart-item{display:flex;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}.cart-item small{display:block;color:var(--muted)}.qty{display:flex;align-items:center;gap:8px}.qty button{border:0;background:#eee9ff;border-radius:7px;width:26px;height:26px}.total{display:flex;justify-content:space-between;font-weight:900;font-size:18px;margin:22px 0}.checkout{width:100%;border:0;background:var(--purple);color:#fff;padding:14px;border-radius:13px;font-weight:800}
+    .empty{text-align:center;color:var(--muted);padding:35px 0}.note{font-size:11px;color:var(--muted);line-height:1.9;margin-top:12px}
+    @media(max-width:800px){.products{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;min-height:0;padding:30px}.hero-art{font-size:90px;grid-row:1}.hero h1{font-size:29px}.nav{gap:12px}.brand{font-size:20px}.cart{padding:10px}.search input{padding:11px 38px 11px 8px}}
+    @media(max-width:430px){.products{gap:10px}.photo{height:135px;font-size:58px}.card{padding:8px}.add{padding:8px}.nav{height:66px}.brand{font-size:17px}.cart{font-size:12px;padding:9px}}
+  </style>
+</head>
+<body>
+  <div class="top">🎉 به رنگین‌مارکت خوش آمدید؛ تجربه‌ای شاد از خرید آنلاین</div>
+  <header><div class="wrap nav">
+    <div class="brand">رنگین<span>‌مارکت</span></div>
+    <div class="search"><input id="search" type="search" placeholder="دنبال چه چیزی می‌گردی؟"></div>
+    <button class="cart" id="openCart">سبد خرید <b id="count">۰</b></button>
+  </div></header>
+  <main class="wrap">
+    <section class="hero">
+      <div><h1>انتخاب‌های رنگی،<br>خریدی شیرین‌تر! ✨</h1><p>محصولات محبوبت را پیدا کن و از یک خرید ساده و لذت‌بخش لذت ببر.</p><a href="#shop">مشاهده محصولات</a></div>
+      <div class="hero-art">🛍️ 🎁</div>
+    </section>
+    <section id="shop">
+      <div class="section-head"><div><h2>محصولات پیشنهادی</h2><p>برای شروع، چند محصول نمونه قرار داده‌ایم.</p></div></div>
+      <div class="chips" id="chips"></div>
+      <div class="products" id="products"></div>
+    </section>
+  </main>
+  <footer><div class="wrap"><strong>رنگین‌مارکت</strong><p>فروشگاه آنلاین شما؛ با سلیقه خودتان کاملش کنید.</p><p>© تمامی حقوق محفوظ است.</p></div></footer>
+  <div class="overlay" id="overlay"><aside class="drawer">
+    <div class="drawer-head"><h2>سبد خرید شما</h2><button class="close" id="closeCart">بستن ✕</button></div>
+    <div id="cartItems"></div><div class="total"><span>جمع کل</span><span id="total">۰ تومان</span></div>
+    <button class="checkout" id="checkout">ادامه سفارش</button>
+    <p class="note">این نسخه نمایشی است؛ پرداخت آنلاین هنوز فعال نشده است. برای دریافت سفارش واقعی باید درگاه پرداخت و بخش مدیریت سفارش‌ها راه‌اندازی شود.</p>
+  </aside></div>
+<script>
+const products=[
+ {id:1,name:"هدفون بی‌سیم",desc:"موسیقی را با آزادی تجربه کن",price:1250000,cat:"دیجیتال",emoji:"🎧",bg:"#eee8ff",tag:"محبوب"},
+ {id:2,name:"ماگ رنگی",desc:"یک فنجان حال خوب برای روزت",price:185000,cat:"خانه",emoji:"☕",bg:"#fff0d9",tag:"جدید"},
+ {id:3,name:"کوله‌پشتی روزمره",desc:"سبک، کاربردی و خوش‌استایل",price:890000,cat:"مد و پوشاک",emoji:"🎒",bg:"#e4f8ef",tag:"پیشنهادی"},
+ {id:4,name:"عینک آفتابی",desc:"استایل متفاوت برای روزهای آفتابی",price:540000,cat:"مد و پوشاک",emoji:"🕶️",bg:"#ffe8ef",tag:"ویژه"},
+ {id:5,name:"چراغ رومیزی",desc:"نور دلنشین برای فضای کار",price:675000,cat:"خانه",emoji:"💡",bg:"#fff5cf",tag:""},
+ {id:6,name:"ساعت هوشمند",desc:"همراهی هوشمند در تمام روز",price:2100000,cat:"دیجیتال",emoji:"⌚",bg:"#e8edff",tag:"محبوب"},
+ {id:7,name:"گلدان دکوراتیو",desc:"جزئیات کوچک، زیبایی بزرگ",price:320000,cat:"خانه",emoji:"🪴",bg:"#e3f6eb",tag:""},
+ {id:8,name:"کتانی روزمره",desc:"راحتی برای قدم‌های بلند",price:1450000,cat:"مد و پوشاک",emoji:"👟",bg:"#f2eaff",tag:""}
+];
+const money=n=>new Intl.NumberFormat("fa-IR").format(n)+" تومان";
+let cart=JSON.parse(localStorage.getItem("rangin-cart")||"{}"),active="همه",term="";
+const productsEl=document.getElementById("products"),chipsEl=document.getElementById("chips");
+const categories=["همه",...new Set(products.map(p=>p.cat))];
+function renderChips(){chipsEl.innerHTML=categories.map(c=>`<button class="chip ${active===c?"active":""}" data-cat="${c}">${c}</button>`).join("");}
+function renderProducts(){
+ const list=products.filter(p=>(active==="همه"||p.cat===active)&&(p.name+" "+p.desc+" "+p.cat).includes(term));
+ productsEl.innerHTML=list.length?list.map(p=>`<article class="card"><div class="photo" style="background:${p.bg}">${p.emoji}${p.tag?`<span class="tag">${p.tag}</span>`:""}</div><h3>${p.name}</h3><p class="desc">${p.desc}</p><div class="price-row"><span class="price">${money(p.price)}</span><button class="add" data-add="${p.id}">افزودن +</button></div></article>`).join():'<p class="empty">محصولی پیدا نشد.</p>';
+}
+function save(){localStorage.setItem("rangin-cart",JSON.stringify(cart));renderCart();}
+function renderCart(){
+ let entries=Object.entries(cart).filter(([,q])=>q>0),count=entries.reduce((s,[,q])=>s+q,0),total=0;
+ document.getElementById("count").textContent=new Intl.NumberFormat("fa-IR").format(count);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,q])=>{let p=products.find(x=>x.id==id);total+=p.price*q;return `<div class="cart-item"><div><strong>${p.emoji} ${p.name}</strong><small>${money(p.price)}</small></div><div class="qty"><button data-minus="${id}">−</button><b>${new Intl.NumberFormat("fa-IR").format(q)}</b><button data-plus="${id}">+</button></div></div>`}).join(""):'<div class="empty">سبد خریدت هنوز خالیه 🛒</div>';
+ document.getElementById("total").textContent=money(total);
+}
+chipsEl.addEventListener("click",e=>{let c=e.target.dataset.cat;if(c){active=c;renderChips();renderProducts();}});
+productsEl.addEventListener("click",e=>{let id=e.target.dataset.add;if(id){cart[id]=(cart[id]||0)+1;save();}});
+document.getElementById("search").addEventListener("input",e=>{term=e.target.value.trim();renderProducts();});
+document.getElementById("cartItems").addEventListener("click",e=>{let id=e.target.dataset.plus||e.target.dataset.minus;if(!id)return;cart[id]=(cart[id]||0)+(e.target.dataset.plus?1:-1);if(cart[id]<=0)delete cart[id];save();});
+const overlay=document.getElementById("overlay");
+document.getElementById("openCart").onclick=()=>overlay.classList.add("show");
+document.getElementById("closeCart").onclick=()=>overlay.classList.remove("show");
+overlay.addEventListener("click",e=>{if(e.target===overlay)overlay.classList.remove("show");});
+document.getElementById("checkout").onclick=()=>alert("این نسخه نمایشی است. در مرحله بعد می‌توانیم فرم ثبت سفارش و درگاه پرداخت را اضافه کنیم.");
+renderChips();renderProducts();renderCart();
+</script>
+</body>
+</html>
